@@ -137,7 +137,7 @@ def admin_dashboard():
         st.subheader("Add New Candidate (Role)")
         name = st.text_input("Candidate Name")
         role = st.selectbox("Role", ["President", "Vice-President", "Secretary", "Treasurer"])
-        roll-no = st.text_input("roll_no")
+        roll_no = st.text_input("roll_no")
         image_file = st.file_uploader("Upload Image", type=["jpg", "png", "jpeg"])
 
         if st.button("Add Candidate"):
