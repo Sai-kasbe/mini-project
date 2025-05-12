@@ -137,11 +137,11 @@ def admin_dashboard():
         st.subheader("Add New Candidate (Role)")
         name = st.text_input("Candidate Name")
         role = st.selectbox("Role", ["President", "Vice-President", "Secretary", "Treasurer"])
-        party = st.text_input("Party")
+        roll-no = st.text_input("roll_no")
         image_file = st.file_uploader("Upload Image", type=["jpg", "png", "jpeg"])
 
         if st.button("Add Candidate"):
-            if not all([name, role, party, image_file]):
+            if not all([name, role, roll_no, image_file]):
                 st.error("Please fill in all fields and upload an image.")
             else:
                 try:
@@ -151,7 +151,7 @@ def admin_dashboard():
                         f.write(image_file.getbuffer())
 
                     conn, cursor = get_connection()
-                    cursor.execute("INSERT INTO candidates (name, party, role, image, votes) VALUES (?, ?, ?, ?, 0)",
+                    cursor.execute("INSERT INTO candidates (name, roll_no, role, image, votes) VALUES (?, ?, ?, ?, 0)",
                                    (name, party, role, image_path))
                     conn.commit()
                     st.success("Candidate Added Successfully!")
