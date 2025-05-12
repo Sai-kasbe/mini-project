@@ -23,7 +23,7 @@ c.execute('''
 CREATE TABLE IF NOT EXISTS candidates (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
-    party TEXT,
+    roll_no TEXT,
     role TEXT,
     image TEXT,
     votes INTEGER DEFAULT 0
@@ -89,7 +89,7 @@ def login_admin(username, password):
 
 # Add candidate
 def add_candidate(name, party, role, image):
-    c.execute('INSERT INTO candidates (name, party, role, image, votes) VALUES (?, ?, ?, ?, 0)', (name, party, role, image))
+    c.execute('INSERT INTO candidates (name, roll_no, role, image, votes) VALUES (?, ?, ?, ?, 0)', (name, roll_no, role, image))
     conn.commit()
 
 # Get all candidates
